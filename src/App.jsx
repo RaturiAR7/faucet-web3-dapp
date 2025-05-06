@@ -16,10 +16,17 @@ import { clusterApiUrl } from "@solana/web3.js";
 import "@solana/wallet-adapter-react-ui/styles.css";
 
 function App() {
+  ///Create own RPC url
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
+      <WalletProvider wallets={[]} autoConnect>
+        <WalletModalProvider>
+          <div>
+            <h1>Hi There </h1>
+          </div>
+        </WalletModalProvider>
+      </WalletProvider>
+    </ConnectionProvider>
   );
 }
 
