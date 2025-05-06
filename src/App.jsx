@@ -20,13 +20,11 @@ import AirDrop from "./components/AirDrop";
 function App() {
   ///Create own RPC url
   return (
-    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
+    <ConnectionProvider endpoint={clusterApiUrl("devnet")}>
       <WalletProvider wallets={[]}>
         <WalletModalProvider>
-          <div>
-            <WalletMultiButton />
-            <WalletDisconnectButton />
-          </div>
+          <WalletMultiButton />
+          <WalletDisconnectButton />
           <AirDrop />
         </WalletModalProvider>
       </WalletProvider>
