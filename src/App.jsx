@@ -18,15 +18,20 @@ import ShowSolBalance from "./components/ShowSolBalance";
 function App() {
   ///Create own RPC url
   return (
-    <ConnectionProvider
-      endpoint={`https://solana-devnet.g.alchemy.com/v2/${
-        import.meta.env.VITE_ALCHEMY_API_KEY
-      }`}
-    >
-      <WalletProvider wallets={[]}>
+    <ConnectionProvider endpoint={"https://api.devnet.solana.com"}>
+      <WalletProvider wallets={[]} autoConnect>
+        <h1>Solana Faucet App</h1>
         <WalletModalProvider>
-          <WalletMultiButton />
-          <WalletDisconnectButton />
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              justifyContent: "space-between",
+            }}
+          >
+            <WalletMultiButton />
+            <WalletDisconnectButton />
+          </div>
           <AirDrop />
           <ShowSolBalance />
         </WalletModalProvider>

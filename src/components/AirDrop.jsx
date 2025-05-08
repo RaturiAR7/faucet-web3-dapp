@@ -1,4 +1,5 @@
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { LAMPORTS_PER_SOL } from "@solana/web3.js";
 import { useState } from "react";
 
 const AirDrop = () => {
@@ -7,11 +8,14 @@ const AirDrop = () => {
   const [amount, setAmount] = useState(0);
 
   const sendAirDropToUser = async () => {
-    await connection.requestAirdrop(wallet.publicKey, amount * 1000000000);
-    console.log(
-      `Airdrop ${amount / 1000000000} SOLs to: `,
-      wallet.publicKey.toString()
-    );
+    try {
+      await connection.requestAirdrop(
+        wallet.publicKey,
+        amount * LAMPORTS_PER_SOL
+      );
+    } catch (error) {
+      console.log("Error sending airdrop:", error);
+    }
   };
   return (
     <div>

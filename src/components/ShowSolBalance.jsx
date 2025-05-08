@@ -6,11 +6,13 @@ const ShowSolBalance = () => {
   const [balance, setBalance] = useState(null);
   useEffect(() => {
     const getSolBalance = async () => {
-      if (wallet.publicKey) {
-        const balance = await connection.getBalance(wallet.publicKey);
-        setBalance(balance / 1000000000);
-      } else {
-        console.log("Wallet not connected");
+      try {
+        if (wallet.publicKey) {
+          const balance = await connection.getBalance(wallet.publicKey);
+          setBalance(balance / 1000000000);
+        }
+      } catch (error) {
+        console.log("Error fetching balance:", error);
       }
     };
     getSolBalance();
