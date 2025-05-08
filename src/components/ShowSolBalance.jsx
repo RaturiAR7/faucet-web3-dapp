@@ -18,7 +18,14 @@ const ShowSolBalance = () => {
     getSolBalance();
   }, [wallet.publicKey, connection]);
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        gap: "10px",
+        margin: "10px",
+        justifyContent: "center",
+      }}
+    >
       <h4>
         {wallet.publicKey && balance !== null
           ? `You have ${balance} Sols`

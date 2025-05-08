@@ -14,6 +14,7 @@ import { clusterApiUrl } from "@solana/web3.js";
 import "@solana/wallet-adapter-react-ui/styles.css";
 import AirDrop from "./components/AirDrop";
 import ShowSolBalance from "./components/ShowSolBalance";
+import SendTokens from "./components/SendTokens";
 
 function App() {
   ///Create own RPC url
@@ -34,6 +35,7 @@ function App() {
           </div>
           <AirDrop />
           <ShowSolBalance />
+          <SendTokens />
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>

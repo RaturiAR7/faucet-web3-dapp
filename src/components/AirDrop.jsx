@@ -18,7 +18,14 @@ const AirDrop = () => {
     }
   };
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        gap: "10px",
+        margin: "10px",
+        justifyContent: "center",
+      }}
+    >
       <input
         type='number'
         placeholder='Amount'
