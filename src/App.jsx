@@ -15,6 +15,7 @@ import "@solana/wallet-adapter-react-ui/styles.css";
 import AirDrop from "./components/AirDrop";
 import ShowSolBalance from "./components/ShowSolBalance";
 import SendTokens from "./components/SendTokens";
+import SignMessage from "./components/SignMessage";
 
 function App() {
   ///Create own RPC url
@@ -36,6 +37,7 @@ function App() {
           <AirDrop />
           <ShowSolBalance />
           <SendTokens />
+          <SignMessage />
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
